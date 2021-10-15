@@ -68,6 +68,7 @@ input[type=text]:focus{
     border-color: rgb(66, 151, 241);
     box-shadow: 0 0 10px rgb(66, 151, 241);
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .ul-list{
@@ -101,6 +102,11 @@ input[type=text]:focus{
     margin: 2px;
     cursor: pointer;    
 }
+.complete-txt:checked ~ .main-text{
+    color: #ccc;
+    text-decoration: line-through #eee;
+    
+}
 .main-text{
     max-width:calc( 460px - 6rem );
     width: 100%;
@@ -108,7 +114,23 @@ input[type=text]:focus{
     font-size: 18px;
     font-weight: 400;
 }
+.edit-input{
+    max-width:calc( 460px - 6rem );
+    width: 100%;
+    margin-left: 5px;
+    font-size: 18px;
+    font-weight: 400;
+
+}
 .edit-list{
+    width: 1rem;
+    height: 1rem;
+    background: url('../img/icons8-edit-30.png') no-repeat center center/cover;
+    padding: 12px;
+    margin: 2px;
+    cursor: pointer;
+}
+.edit-input-btn{
     width: 1rem;
     height: 1rem;
     background: url('../img/icons8-edit-30.png') no-repeat center center/cover;
@@ -142,6 +164,7 @@ input[type=text]:focus{
     margin: 0 10px;
     background-color: rgba(51, 51, 51,.5);
     border: none;
+    cursor: pointer;
 }
 .filtered{
     display: none !important;
