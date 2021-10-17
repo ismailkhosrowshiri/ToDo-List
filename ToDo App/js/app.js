@@ -6,6 +6,7 @@ let complete_btn = document.querySelector(".complete");
 let active_btn = document.querySelector(".active");
 let all_btn = document.querySelector(".all");
 let edit_list = document.querySelector(".edit-list");
+console.log(edit_list);
 let main_text = document.querySelector(".main-text");
 const generateTemplate = (todo) => {
   const html = `
@@ -57,27 +58,14 @@ active_btn.addEventListener("ckick", function () {
     check.parentElement.classList.add("filterd");
   }
 });
-// edit function
-var edit_input = document.createElement("input");
-edit_input.classList.add("edit-input");
-edit_input.classList.add("filterd");
-edit_input.name = "edit-input";
-edit_input.type = "text";
-edit_input.value = main_text.innerHTML;
+// // edit function
 
-var edit_input_btn = document.createElement("button");
-edit_input_btn.classList.add("filterd");
-edit_input_btn.classList.add("edit-input-btn");
-edit_input_btn.type = "button";
-
-edit_list.addEventListener("click", function () {
-  edit_input.classList.remove("filterd");
-  main_text.classList.add("filterd");
-  edit_input_btn.classList.remove("filterd");
-  edit_input_btn.addEventListener("click", function () {
-    main_text.textContent = edit_input.value;
-    edit_input.classList.add("filterd");
-    main_text.classList.remove("filterd");
-    edit_input_btn.classList.add("filterd");
-  });
+list.addEventListener("click", (e) => {
+  if (e.target.classList.contains("edit-list")) {
+    if (e.target.previousElementSibling.contentEditable !== "true") {
+      e.target.previousElementSibling.contentEditable = "true";
+    } else {
+      e.target.previousElementSibling.contentEditable = "false";
+    }
+  }
 });
