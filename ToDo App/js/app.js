@@ -1,13 +1,10 @@
 let addForm = document.querySelector(".add");
 let search = document.querySelector(".search input");
 let list = document.querySelector(".ul-list");
-let check = document.querySelector(".complete-txt");
 let complete_btn = document.querySelector(".complete");
 let active_btn = document.querySelector(".active");
 let all_btn = document.querySelector(".all");
-let edit_list = document.querySelector(".edit-list");
-console.log(edit_list);
-let main_text = document.querySelector(".main-text");
+
 const generateTemplate = (todo) => {
   const html = `
   <li class="list-item">
@@ -53,12 +50,7 @@ list.addEventListener("click", (e) => {
   }
 });
 
-active_btn.addEventListener("ckick", function () {
-  if (check.checked == true) {
-    check.parentElement.classList.add("filterd");
-  }
-});
-// // edit function
+// edit todos
 
 list.addEventListener("click", (e) => {
   if (e.target.classList.contains("edit-list")) {
@@ -66,6 +58,42 @@ list.addEventListener("click", (e) => {
       e.target.previousElementSibling.contentEditable = "true";
     } else {
       e.target.previousElementSibling.contentEditable = "false";
+    }
+  }
+});
+// Active Button
+
+active_btn.addEventListener("click", function () {
+  let check_id = document.querySelectorAll(".complete-txt");
+
+  for (let i = 0; i < check_id.length; i++) {
+    if (check_id[i].checked === true) {
+      check_id[i].parentElement.classList.add("filtered");
+    } else {
+      check_id[i].parentElement.classList.remove("filtered");
+    }
+  }
+});
+
+// Complete Button
+
+complete_btn.addEventListener("click", function () {
+  let check_id = document.querySelectorAll(".complete-txt");
+  for (let i = 0; i < check_id.length; i++) {
+    if (check_id[i].checked !== true) {
+      check_id[i].parentElement.classList.add("filtered");
+    } else {
+      check_id[i].parentElement.classList.remove("filtered");
+    }
+  }
+});
+// All Button
+
+all_btn.addEventListener("click", function () {
+  let check_id = document.querySelectorAll(".complete-txt");
+  for (let i = 0; i < check_id.length; i++) {
+    if (check_id[i].parentElement.classList.contains("filtered")) {
+      check_id[i].parentElement.classList.remove("filtered");
     }
   }
 });
