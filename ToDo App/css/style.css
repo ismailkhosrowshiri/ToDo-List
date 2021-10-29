@@ -169,3 +169,14 @@ input[type="text"]:focus {
 .filtered {
   display: none !important;
 }
+.clicked-class {
+  border-color: rgb(219, 88, 0);
+
+  box-shadow: 0 0 20px rgb(255, 94, 1);
+  background-color: rgb(66, 151, 241);
+  color: #eee;
+}
+.checkbox-style {
+  color: #ccc;
+  text-decoration: line-through #eee;
+}

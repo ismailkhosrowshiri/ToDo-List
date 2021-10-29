@@ -6,12 +6,13 @@ let active_btn = document.querySelector(".active");
 let all_btn = document.querySelector(".all");
 
 const generateTemplate = (todo) => {
+  const li = document.createElement("li");
+  li.classList.add("list-item");
   const html = `
-  <li class="list-item">
   <input type="checkbox" class="complete-txt"  name="" id=""><span class="main-text">${todo}</span><div class="edit-list"></div><div class="delete-list"></div>
-</li>
-  `;
-  list.innerHTML += html;
+   `;
+  li.innerHTML += html;
+  list.prepend(li);
 };
 
 // add todos event
@@ -73,6 +74,9 @@ active_btn.addEventListener("click", function () {
       check_id[i].parentElement.classList.remove("filtered");
     }
   }
+  all_btn.classList.remove("clicked-class");
+  active_btn.classList.add("clicked-class");
+  complete_btn.classList.remove("clicked-class");
 });
 
 // Complete Button
@@ -86,6 +90,9 @@ complete_btn.addEventListener("click", function () {
       check_id[i].parentElement.classList.remove("filtered");
     }
   }
+  all_btn.classList.remove("clicked-class");
+  active_btn.classList.remove("clicked-class");
+  complete_btn.classList.add("clicked-class");
 });
 // All Button
 
@@ -96,4 +103,7 @@ all_btn.addEventListener("click", function () {
       check_id[i].parentElement.classList.remove("filtered");
     }
   }
+  all_btn.classList.add("clicked-class");
+  active_btn.classList.remove("clicked-class");
+  complete_btn.classList.remove("clicked-class");
 });
